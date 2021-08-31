@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "umd",
+    "target": "es2016",
+    "baseUrl": "."
+  },
+  "exclude": [
+    "node_modules",
+    ".git",
+    "**/node_modules/*"
+  ],
+  "typeAcquisition": {
+    "include": [
+        "jest"
+    ]
+  }
+}

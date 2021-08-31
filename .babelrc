@@ -1,0 +1,39 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          // "node": [
+          //   "10"
+          // ]
+        },
+        "loose": false,
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-export-default-from"
+    ],
+    [
+      "@babel/plugin-proposal-nullish-coalescing-operator",
+      {
+        "loose": false
+      }
+    ],
+    [
+      "@babel/plugin-proposal-object-rest-spread",
+      {
+        "loose": false
+      }
+    ],
+    [
+      "@babel/plugin-proposal-optional-chaining",
+      {
+        "loose": false
+      }
+    ],
+  ]
+}
