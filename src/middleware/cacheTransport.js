@@ -7,6 +7,8 @@ import { parseSearchFromUrl, mergeCookies } from '../utils/urlUtils.js'
  * @property {String} path - source path of transport endpoint
  * @property {String} destination - destination path to get data
  * @property {Number} ttl - time to live for cached item
+ * @property {Function} [computeHash] - custom function for generating storage key
+ * @property {Boolean} [redirectOnError] - redirect request to target URL if error happens
  */
 
 /**
