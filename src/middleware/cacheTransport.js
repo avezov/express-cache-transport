@@ -47,8 +47,8 @@ export function createCacheTransport({ cacheConfig, useCookie, computeHash, debu
       req.app.get(config.path, (req, res) => {
         const search = parseSearchFromUrl(req.originalUrl) || ''
         const cacheKey = (
-          config.computeHash ? config.computeHash({ search, cookies: req.cookies }) :
-            computeHash ? computeHash({ search, cookies: req.cookies }) :
+          config.computeHash ? config.computeHash({ search, cookies: req.cookies, req }) :
+            computeHash ? computeHash({ search, cookies: req.cookies, req }) :
               search
         );
         const cachedData = cached.get(cacheKey);
@@ -62,7 +62,8 @@ export function createCacheTransport({ cacheConfig, useCookie, computeHash, debu
           const fetchOptions = {
             headers: {
               'User-Agent': req.get('User-Agent'),
-              'X-Forwarded-For': req.get('X-Forwarded-For')
+              'X-Forwarded-For': req.get('X-Forwarded-For'),
+              'Accept-Language': req.get('Accept-Language'),
             }
           };
 
