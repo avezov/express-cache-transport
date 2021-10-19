@@ -1,6 +1,6 @@
 {
   "name": "express-cache-transport",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Express middleware for caching requests",
   "main": "lib/index.js",
   "module": "es/index.js",
