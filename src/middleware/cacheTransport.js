@@ -54,7 +54,8 @@ export function createCacheTransport({ cacheConfig, useCookie, computeHash, debu
         const cachedData = cached.get(cacheKey);
 
         if (cachedData) {
-          res.send(cachedData);
+          res.set({ 'content-type': cachedData.contentType })
+          res.send(cachedData.data);
         } else {
           const url = new URL(config.destination);
           url.search = search;
@@ -64,6 +65,8 @@ export function createCacheTransport({ cacheConfig, useCookie, computeHash, debu
               'User-Agent': req.get('User-Agent'),
               'X-Forwarded-For': req.get('X-Forwarded-For'),
               'Accept-Language': req.get('Accept-Language'),
+              ...(typeof config.headers === 'function'
+                ? config.headers(req) : config.headers),
             }
           };
 
@@ -80,11 +83,17 @@ export function createCacheTransport({ cacheConfig, useCookie, computeHash, debu
               if (!response.ok) {
                 throw new Error('Response is not cacheable');
               }
+
+              cached._contentType = response.headers.get('content-type')
+              res.set({ 'content-type': cached._contentType })
               return response;
             })
             .then(response => response.text())
             .then(response => {
-              cached.set(response, cacheKey);
+              cached.set({
+                data: response,
+                contentType: cached._contentType
+              }, cacheKey);
               res.send(response);
             })
             .catch((error) => {

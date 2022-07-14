@@ -26,6 +26,9 @@ const cacheConfig = [
     redirectOnError: false,
     onError(error, req, res) {
       res.send('custom item error')
+    },
+    headers: {
+      'X-Secret-Header': '123abc'
     }
   }
 ];
