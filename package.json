@@ -1,6 +1,6 @@
 {
   "name": "express-cache-transport",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Express middleware for caching requests",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -31,12 +31,12 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
-    "rollup": "^2.56.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "rollup": "^2.56.3"
   },
   "dependencies": {
     "cookie": "^0.4.1",
     "cookie-parser": "^1.4.5",
-    "isomorphic-fetch": "^3.0.0"
+    "cross-fetch": "^4.1.0"
   }
 }
