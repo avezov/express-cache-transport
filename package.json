@@ -1,6 +1,6 @@
 {
   "name": "express-cache-transport",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Express middleware for caching requests",
   "type": "module",
   "exports": {
